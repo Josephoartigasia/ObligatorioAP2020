@@ -1,0 +1,6 @@
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\Clases\bin\Debug\Clases.dll
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\Clases\bin\Debug\Clases.pdb
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\Clases\obj\Debug\Clases.csprojAssemblyReference.cache
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\Clases\obj\Debug\Clases.csproj.CoreCompileInputs.cache
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\Clases\obj\Debug\Clases.dll
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\Clases\obj\Debug\Clases.pdb

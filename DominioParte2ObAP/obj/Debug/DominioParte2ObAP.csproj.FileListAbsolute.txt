@@ -1,0 +1,6 @@
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\DominioParte2ObAP\bin\Debug\DominioParte2ObAP.dll
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\DominioParte2ObAP\bin\Debug\DominioParte2ObAP.pdb
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\DominioParte2ObAP\obj\Debug\DominioParte2ObAP.csprojAssemblyReference.cache
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\DominioParte2ObAP\obj\Debug\DominioParte2ObAP.csproj.CoreCompileInputs.cache
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\DominioParte2ObAP\obj\Debug\DominioParte2ObAP.dll
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\DominioParte2ObAP\obj\Debug\DominioParte2ObAP.pdb

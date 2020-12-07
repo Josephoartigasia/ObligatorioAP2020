@@ -1,0 +1,10 @@
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\ObligatorioParte1\bin\Debug\ObligatorioParte1.exe.config
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\ObligatorioParte1\bin\Debug\ObligatorioParte1.exe
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\ObligatorioParte1\bin\Debug\ObligatorioParte1.pdb
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\ObligatorioParte1\bin\Debug\Clases.dll
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\ObligatorioParte1\bin\Debug\Clases.pdb
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\ObligatorioParte1\obj\Debug\ObligatorioParte1.csprojAssemblyReference.cache
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\ObligatorioParte1\obj\Debug\ObligatorioParte1.csproj.CoreCompileInputs.cache
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\ObligatorioParte1\obj\Debug\ObligatorioParte1.csproj.CopyComplete
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\ObligatorioParte1\obj\Debug\ObligatorioParte1.exe
+C:\Users\Rodrigo\source\repos\ObligatorioAP2020\ObligatorioParte1\obj\Debug\ObligatorioParte1.pdb
