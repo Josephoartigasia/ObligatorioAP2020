@@ -19,16 +19,15 @@ namespace ObligatorioParte2AP
 
         protected void BtnVolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ComprarExcursion.aspx");
+            Response.Redirect("InicioCliente.aspx");
         }
 
         protected void BtnConfirmar_Click(object sender, EventArgs e)
         {
-            Agencia a = new Agencia();
             int numExc = Convert.ToInt32(Request.QueryString["Codigo"]);
             int cantMayores = Convert.ToInt32(TxtMayores.Text);
             int cantMenores = Convert.ToInt32(TxtMenores.Text);
-            Excursion exc = a.BuscarExcursionEnListaPorCodigo(numExc);
+            Excursion exc = Agencia.Instancia.BuscarExcursionEnListaPorCodigo(numExc);
             if (exc.Stock < (cantMayores + cantMenores))
             {
                 LiteralMsj.Text = "No hay Stock disponible para la cantidad de personas ingresadas";
@@ -36,9 +35,15 @@ namespace ObligatorioParte2AP
             else
             {
                 exc.Stock = exc.Stock - (cantMayores + cantMenores);
-                List<Excursion> nuevaCompra = new List<Excursion>();
-                nuevaCompra.Add(exc);
+                Agencia.Instancia.AgregarCompra(exc);
                 LiteralMsj.Text = "Compra realizada";
+                string detalleNuevaCompra = "<table class='table'><tr><th>Código</th><th>Descripción</th><th>Fecha de Inicio</th><th>Stock Disponible</th></tr>";
+                foreach (Excursion ex in Agencia.Instancia.ObtenerListaCompras())
+                {
+                    detalleNuevaCompra += $"<tr><td>{ex.Codigo}</td><td>{ex.Descripcion}</td><td>{ex.FechaIni}</td><td>{ex.Stock}</td></tr>";
+                }
+                detalleNuevaCompra += "</table>";
+                LiteralListaCompras.Text = detalleNuevaCompra;
             }
         }
     }

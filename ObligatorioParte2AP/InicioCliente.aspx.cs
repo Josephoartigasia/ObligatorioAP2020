@@ -21,11 +21,10 @@ namespace ObligatorioParte2AP
 
         private void ListarExcursiones()
         {
-            Agencia a = new Agencia();
             string html = "<table class='table'><tr><th>Código de Excursión</th><th>Descripción</th><th>Fecha de Inicio</th><th>Stock Disponible</th><th></th></tr> ";
-            foreach(Excursion e in a.ObtenerExcursiones())
+            foreach(Excursion e in Agencia.Instancia.ObtenerExcursiones())
             {
-                html += $"<tr><td>{e.Codigo}</td><td>{e.Descripcion}</td><td>{e.FechaIni}</td><td>{e.Stock}</td><td><a href='/ComprarExcursion.aspx?Codigo={e.Codigo}'>Ver</a></td></tr>";
+                html += $"<tr><td>{e.Codigo}</td><td>{e.Descripcion}</td><td>{e.FechaIni.ToShortDateString()}</td><td>{e.Stock}</td><td><a href='/ComprarExcursion.aspx?Codigo={e.Codigo}'>Ver</a></td></tr>";
             }
             html += "<table>";
             LiteralTabla.Text = html;

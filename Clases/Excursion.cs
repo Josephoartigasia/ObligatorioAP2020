@@ -8,8 +8,8 @@ namespace Clases
 {
     public class Excursion
     {
-        public int Codigo { get; set; } = 900;
-        public static int ProxNumCodigo { get; set; } = 100;
+        public int Codigo { get; set; } 
+        public static int ProxNumCodigo { get; set; } = 1000;
         public string Descripcion { get; set; }
         public DateTime FechaIni { get; set; }
         public DateTime FechaFin { get; set; }

@@ -11,9 +11,24 @@ namespace Clases
         private List<CompaniaAerea> companiaAereas;
         private List<Destino> destinos;
         private List<Excursion> excursiones;
+        private List<Excursion> nuevaCompra;
+        private static Agencia instancia;
 
-        public Agencia()
+        public static Agencia Instancia
         {
+            get
+            {
+                if (instancia == null)
+                {
+                    instancia = new Agencia();
+                }
+                return instancia;
+            }
+        }
+
+        private Agencia()
+        {
+            nuevaCompra = new List<Excursion>();
             companiaAereas = new List<CompaniaAerea>();
             destinos = new List<Destino>();
             excursiones = new List<Excursion>();
@@ -200,23 +215,23 @@ namespace Clases
             AgregarDestinoValidado(d5N);
 
 
-            Excursion exc1 = new ExcursionNacional("lalala", DateTime.Parse("2020-05-11"), DateTime.Parse("2020-06-15"), 12, true, true);
+            Excursion exc1 = new ExcursionNacional("lalala", DateTime.Parse("2020-05-11"), DateTime.Parse("2020-06-15"), 20, true, true);
             if (exc1.AgregarDestino(d1N) && exc1.AgregarDestino(d5N))
             {
-                exc1.Codigo = exc1.Codigo + Excursion.ProxNumCodigo;
+                exc1.Codigo = Excursion.ProxNumCodigo;
                 excursiones.Add(exc1);
                 Excursion.ProxNumCodigo += 100;
             }
 
-            Excursion exc2 = new ExcursionNacional("lelele", DateTime.Parse("2020-06-16"), DateTime.Parse("2020-06-26"), 12, true, true);
+            Excursion exc2 = new ExcursionNacional("lelele", DateTime.Parse("2020-06-16"), DateTime.Parse("2020-06-26"), 9, true, true);
             if (exc2.AgregarDestino(d3N) && exc2.AgregarDestino(d2N) && exc2.AgregarDestino(d5N) && exc2.AgregarDestino(d4N))
             {
-                exc2.Codigo = exc2.Codigo + Excursion.ProxNumCodigo;
+                exc2.Codigo =  Excursion.ProxNumCodigo;
                 excursiones.Add(exc2);
                 Excursion.ProxNumCodigo+= 100;
             }
 
-            Excursion exc3 = new ExcursionNacional("lilili", DateTime.Parse("2020-08-25"), DateTime.Parse("2020-09-11"), 12, true, true);
+            Excursion exc3 = new ExcursionNacional("lilili", DateTime.Parse("2020-08-25"), DateTime.Parse("2020-09-11"), 3, true, true);
             if (exc3.AgregarDestino(d5N) && exc2.AgregarDestino(d4N) && exc3.AgregarDestino(d2N))
             {
                 exc3.Codigo += Excursion.ProxNumCodigo;
@@ -357,6 +372,16 @@ namespace Clases
         public List<Excursion> ObtenerExcursiones()
         {
             return new List<Excursion>(excursiones);
+        }
+
+        public void AgregarCompra(Excursion ex)
+        {
+            nuevaCompra.Add(ex);
+        }
+
+        public List<Excursion> ObtenerListaCompras()
+        {
+            return new List<Excursion>(nuevaCompra);
         }
     }
 }

@@ -4,5 +4,7 @@
     <asp:Label ID="Label1" runat="server" Text="Ingresar Cantidad Personas Mayores"></asp:Label><asp:TextBox ID="TxtMayores" runat="server"></asp:TextBox><br />
     <asp:Label ID="Label2" runat="server" Text="Ingresar Cantidad Personas Menores"></asp:Label><asp:TextBox ID="TxtMenores" runat="server"></asp:TextBox><br />
     <asp:Button ID="BtnConfirmar" runat="server" Text="CONFIRMAR" OnClick="BtnConfirmar_Click" /><asp:Button ID="BtnVolver" runat="server" Text="VOLVER" OnClick="BtnVolver_Click" />
-    <asp:Literal ID="LiteralMsj" runat="server"></asp:Literal>
+    <asp:Literal ID="LiteralMsj" runat="server"></asp:Literal><br />
+    <asp:Label ID="Label4" runat="server" Text="LISTA DE COMPRAS REALIZADAS"></asp:Label><br />
+    <asp:Literal ID="LiteralListaCompras" runat="server"></asp:Literal><br />
 </asp:Content>

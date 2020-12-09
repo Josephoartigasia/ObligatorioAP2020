@@ -20,9 +20,8 @@ namespace ObligatorioParte2AP
 
         public void DetalleExcursión()
         {
-            Agencia a = new Agencia();
             int num = Convert.ToInt32(Request.QueryString["Codigo"]);
-            Excursion e = a.BuscarExcursionEnListaPorCodigo(num);
+            Excursion e = Agencia.Instancia.BuscarExcursionEnListaPorCodigo(num);
             if (e == null)
             {
                 LiteralDetalle.Text = "No existe Excursión";
@@ -30,12 +29,12 @@ namespace ObligatorioParte2AP
             else
             {
                 string detalle = "<table class='table'><tr><th>Código</th><th>Descripción</th><th>Fecha de Inicio</th><th>Stock Disponible</th></tr>";
-                detalle += $"<tr><td>{e.Codigo}</td><td>{e.Descripcion}</td><td>{e.FechaIni}</td><td>{e.Stock}</td><td><a href='/ConfirmarCompra.aspx?Codigo={e.Codigo}'>CONFIRMAR</a></td></tr></table>";
+                detalle += $"<tr><td>{e.Codigo}</td><td>{e.Descripcion}</td><td>{e.FechaIni.ToShortDateString()}</td><td>{e.Stock}</td><td><a href='/ConfirmarCompra.aspx?Codigo={e.Codigo}'>CONFIRMAR</a></td></tr></table>";
                 LiteralDetalle.Text = detalle;
                 string detalleDestino = "<table class='table'><tr><th>Ciudad</th><th>País</th><th>Días en Destino</th><th>Costo U$S</th><th>Costo $</th>";
                 foreach(Destino d in e.Destinos)
                 {
-                    detalleDestino += $"<tr><td>{d.Ciudad}</td><td>{d.Pais}</td><td>{d.CantDiasDestino}</td><td>{a.ObtenerCostoDolares(d.CostoPorDia, d.CantDiasDestino)}</td><td>{a.ObtenerCostoPesos(d.CostoPorDia, d.CantDiasDestino, Destino.Cotizacion)}</td></tr>";
+                    detalleDestino += $"<tr><td>{d.Ciudad}</td><td>{d.Pais}</td><td>{d.CantDiasDestino}</td><td>{Agencia.Instancia.ObtenerCostoDolares(d.CostoPorDia, d.CantDiasDestino)}</td><td>{Agencia.Instancia.ObtenerCostoPesos(d.CostoPorDia, d.CantDiasDestino, Destino.Cotizacion)}</td></tr>";
                 }
                 detalleDestino += "</table>";
                 LiteralDestinos.Text = detalleDestino;

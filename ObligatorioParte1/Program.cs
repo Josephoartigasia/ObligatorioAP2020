@@ -9,7 +9,6 @@ namespace ObligatorioParte1
 {
     class Program
     {
-        private static Agencia a = new Agencia();
         static void Main(string[] args)
         {
 
@@ -48,7 +47,7 @@ namespace ObligatorioParte1
             //Console.WriteLine("Ingresar cotización");
             //float cotizacion = Convert.ToSingle(Console.ReadLine());
             Destino d = new Destino(ciudad, pais, cantDiasDest, costoPorDia);
-            if (a.AgregarDestinoValidado(d))
+            if (Agencia.Instancia.AgregarDestinoValidado(d))
             {
                 Console.WriteLine("Destino agregado");
             }
@@ -63,14 +62,14 @@ namespace ObligatorioParte1
         public static void MostrarDestinosIngresados()
         {
             Console.WriteLine("LISTA DE DESTINOS");
-            foreach(Destino d in a.ObtenerListaDestinos())
+            foreach(Destino d in Agencia.Instancia.ObtenerListaDestinos())
             {
                 Console.WriteLine("Ciudad: " + d.Ciudad);
                 Console.WriteLine("País: " + d.Pais);
                 Console.WriteLine("Cantidad de días en destino: " + d.CantDiasDestino);
                 Console.WriteLine("Cotización: " + Destino.Cotizacion);
-                Console.WriteLine("Costo destino en U$S: "+ a.ObtenerCostoDolares(d.CostoPorDia, d.CantDiasDestino));
-                Console.WriteLine("Costo destino en $: " + a.ObtenerCostoPesos(d.CostoPorDia, d.CantDiasDestino, Destino.Cotizacion));
+                Console.WriteLine("Costo destino en U$S: "+ Agencia.Instancia.ObtenerCostoDolares(d.CostoPorDia, d.CantDiasDestino));
+                Console.WriteLine("Costo destino en $: " + Agencia.Instancia.ObtenerCostoPesos(d.CostoPorDia, d.CantDiasDestino, Destino.Cotizacion));
             }
             Console.ReadKey();
             Console.Clear();
@@ -78,7 +77,7 @@ namespace ObligatorioParte1
 
         public static void MostrarCompaniaAerea()
         {
-            foreach(CompaniaAerea compA in a.ObtenerCompaniasAereas())
+            foreach(CompaniaAerea compA in Agencia.Instancia.ObtenerCompaniasAereas())
             {
                 Console.WriteLine("Nombre: " + compA.NombreComp);
                 Console.WriteLine("Código: " + compA.CodigoComp);
@@ -93,7 +92,7 @@ namespace ObligatorioParte1
             float cstAcumP = 0;
             float cstAcumD = 0;
             Console.WriteLine("LISTA DE EXCURSIONES NACIONALES");
-            foreach(Excursion e in a.ObtenerExcursionesNacionales())
+            foreach(Excursion e in Agencia.Instancia.ObtenerExcursionesNacionales())
             {
                 Console.WriteLine("Número de excursión: " + e.Codigo);
                 Console.WriteLine("Descripción: " + e.Descripcion);
@@ -103,8 +102,8 @@ namespace ObligatorioParte1
                 Console.WriteLine("Destinos disponibles: ");
                 foreach(Destino d in e.Destinos)
                 {
-                    float cstEnDolares = a.ObtenerCostoDolares(d.CostoPorDia, d.CantDiasDestino);
-                    float cstEnPesos = a.ObtenerCostoPesos(d.CostoPorDia, d.CantDiasDestino, Destino.Cotizacion);
+                    float cstEnDolares = Agencia.Instancia.ObtenerCostoDolares(d.CostoPorDia, d.CantDiasDestino);
+                    float cstEnPesos = Agencia.Instancia.ObtenerCostoPesos(d.CostoPorDia, d.CantDiasDestino, Destino.Cotizacion);
                     Console.WriteLine("Ciudad: " + d.Ciudad);
                     Console.WriteLine("País: " + d.Pais);
                     Console.WriteLine("Cantidad de días en destino: " + d.CantDiasDestino);
@@ -126,7 +125,7 @@ namespace ObligatorioParte1
             float cstAcumP = 0;
             float cstAcumD = 0;
             Console.WriteLine("LISTA DE EXCURSIONES INTERNACIONALES");
-            foreach (Excursion i in a.ObtenerExcursionesInternacionales())
+            foreach (Excursion i in Agencia.Instancia.ObtenerExcursionesInternacionales())
             {
                 Console.WriteLine("Número de excursión: " + i.Codigo);
                 Console.WriteLine("Descripción: " + i.Descripcion);
@@ -136,8 +135,8 @@ namespace ObligatorioParte1
                 Console.WriteLine("Destinos posibles: ");
                 foreach (Destino d in i.Destinos)
                 {
-                    float cstEnDolares = a.ObtenerCostoDolares(d.CostoPorDia, d.CantDiasDestino);
-                    float cstEnPesos = a.ObtenerCostoPesos(d.CostoPorDia, d.CantDiasDestino, Destino.Cotizacion);
+                    float cstEnDolares = Agencia.Instancia.ObtenerCostoDolares(d.CostoPorDia, d.CantDiasDestino);
+                    float cstEnPesos = Agencia.Instancia.ObtenerCostoPesos(d.CostoPorDia, d.CantDiasDestino, Destino.Cotizacion);
                     Console.WriteLine("Ciudad: " + d.Ciudad);
                     Console.WriteLine("País: " + d.Pais);
                     Console.WriteLine("Cantidad de días en destino: " + d.CantDiasDestino);
@@ -174,7 +173,7 @@ namespace ObligatorioParte1
             DateTime fechaIni = Convert.ToDateTime(Console.ReadLine());
             Console.WriteLine("Ingresar fecha final");
             DateTime fechaFin = Convert.ToDateTime(Console.ReadLine());
-            foreach(Excursion e in a.ObtenerExcursionesNacionales())
+            foreach(Excursion e in Agencia.Instancia.ObtenerExcursionesNacionales())
             {
                 foreach(Destino d in e.Destinos)
                 {
@@ -201,7 +200,7 @@ namespace ObligatorioParte1
             DateTime fechaIni = DateTime.Parse(Console.ReadLine());
             Console.WriteLine("Ingresar fecha final");
             DateTime fechaFin = DateTime.Parse(Console.ReadLine());
-            foreach(Excursion i in a.ObtenerExcursionesInternacionales())
+            foreach(Excursion i in Agencia.Instancia.ObtenerExcursionesInternacionales())
             {
                 foreach(Destino d in i.Destinos)
                 {
