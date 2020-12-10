@@ -27,5 +27,21 @@ namespace Clases
             }
             return false;
         }
+
+        public override float CalcularCostoExcursionDolares(Excursion e)
+        {
+            float costoSinAumD = base.CalcularCostoExcursionDolares(e);
+            float aumentoD = costoSinAumD * Comision;
+            float costoTotalConAumD = costoSinAumD + aumentoD;
+            return costoTotalConAumD;
+        }
+
+        public override float CalcularCostoExcursionPesos(Excursion e)
+        {
+            float costoSinAumP = base.CalcularCostoExcursionPesos(e);
+            float aumentoP = costoSinAumP * Comision;
+            float costoTotalConAumP = costoSinAumP + aumentoP;
+            return costoTotalConAumP;
+        }
     }
 }

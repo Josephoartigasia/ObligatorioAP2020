@@ -12,12 +12,12 @@ namespace ObligatorioParte2AP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string detalleNuevaCompra = "<table class='table'><tr><th>Código</th><th>Descripción</th><th>Fecha de Inicio</th><th>Stock Disponible</th><th>Costo en US$</th><th>Costo en $</th></tr>";
+            string detalleNuevaCompra = "<table class='table'><tr><th>Código</th><th>Descripción</th><th>Fecha de Inicio</th><th>Stock Disponible</th><th>Costo en US$</th><th>Costo en $</th><th></th></tr>";
             foreach (Excursion ex in Agencia.Instancia.ObtenerListaCompras())
             {
                 foreach (Destino d in ex.Destinos)
                 {
-                    detalleNuevaCompra += $"<tr><td>{ex.Codigo}</td><td>{ex.Descripcion}</td><td>{ex.FechaIni}</td><td>{ex.Stock}</td><td>{Agencia.Instancia.ObtenerCostoPorTipoExcursionDolares(d.CostoPorDia, d.CantDiasDestino, )}</td> </ tr > ";
+                    detalleNuevaCompra += $"<tr><td>{ex.Codigo}</td><td>{ex.Descripcion}</td><td>{ex.FechaIni}</td><td>{ex.Stock}</td><td>{ex.CalcularCostoExcursionDolares(ex)}</td><td>{ex.CalcularCostoExcursionPesos(ex)}</td><td><a href='/EliminarCompra.aspx?Codigo={ex.Codigo}'>ELIMINAR</a></td> </ tr > ";
                 }
             }
             detalleNuevaCompra += "</table>";

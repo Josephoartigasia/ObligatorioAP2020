@@ -47,5 +47,27 @@ namespace Clases
             }
             return false;
         }
+
+        public virtual float CalcularCostoExcursionDolares(Excursion e)
+        {
+            float costoAcum = 0;
+            foreach(Destino d in destinosExc)
+            {
+                float costo = Agencia.Instancia.ObtenerCostoDolares(d.CostoPorDia, d.CantDiasDestino);
+                costoAcum += costo;
+            }
+            return costoAcum;
+        }
+
+        public virtual float CalcularCostoExcursionPesos(Excursion e)
+        {
+            float costoAcum = 0;
+            foreach(Destino d in destinosExc)
+            {
+                float costo = Agencia.Instancia.ObtenerCostoPesos(d.CostoPorDia, d.CantDiasDestino, Destino.Cotizacion);
+                costoAcum += costo;
+            }
+            return costoAcum;
+        }
     }
 }

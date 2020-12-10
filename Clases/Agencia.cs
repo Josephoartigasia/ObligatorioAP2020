@@ -125,42 +125,6 @@ namespace Clases
             return costoTotalPesos;
         }
 
-        public float ObtenerCostoPorTipoExcursionDolares(float costo, int cantDias, float descuento, float comision, int codigo, DateTime fechaIni)
-        {
-            if (BuscarExcursionEnListaPorCodigo(codigo) is ExcursionNacional && fechaIni >= DateTime.Parse("2020-05-01") && fechaIni <= DateTime.Parse("2020-08-31"))
-            {
-                float costoSinDesc = ObtenerCostoDolares(costo, cantDias);
-                float desc = costoSinDesc * descuento;
-                float costoTotalConDesc = costoSinDesc - desc;
-                return costoTotalConDesc;
-            }
-            else
-            {
-                float costoTotalSinAum = ObtenerCostoDolares(costo, cantDias);
-                float aumento = costoTotalSinAum * comision;
-                float costoTotalConAum = costoTotalSinAum + aumento;
-                return costoTotalConAum;
-            }
-        }
-
-        public float ObtenerCostoPorTipoExcursionPesos(float costo, int cantDias, float descuento, float comision, int codigo, DateTime fechaIni, float cot)
-        {
-            if (BuscarExcursionEnListaPorCodigo(codigo) is ExcursionNacional && fechaIni >= DateTime.Parse("2020-05-01") && fechaIni <= DateTime.Parse("2020-08-31"))
-            {
-                float costoSinDesc = ObtenerCostoPesos(costo, cantDias, cot);
-                float desc = costoSinDesc * descuento;
-                float costoTotalConDesc = costoSinDesc - desc;
-                return costoTotalConDesc;
-            }
-            else
-            {
-                float costoTotalSinAum = ObtenerCostoPesos(costo, cantDias, cot);
-                float aumento = costoTotalSinAum * comision;
-                float costoTotalConAum = costoTotalSinAum + aumento;
-                return costoTotalConAum;
-            }
-        }
-
         public bool ValidarDestino(Destino d)
         {
             if (ValidarCantDiasDestino(d.CantDiasDestino) && ValidarCostoDestino(d.CostoPorDia) && ValidarCiudadDestino(d.Ciudad) && ValidarPaisDestino(d.Pais))
@@ -418,6 +382,11 @@ namespace Clases
         public List<Excursion> ObtenerListaCompras()
         {
             return new List<Excursion>(nuevaCompra);
+        }
+
+        public void EliminarCompra(Excursion ex)
+        {
+            nuevaCompra.Remove(ex);
         }
     }
 }
