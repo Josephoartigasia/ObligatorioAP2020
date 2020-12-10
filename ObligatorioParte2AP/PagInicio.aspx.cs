@@ -18,15 +18,16 @@ namespace ObligatorioParte2AP
 
         protected void BtnIngresar_Click(object sender, EventArgs e)
         {
-            Usuario unUsuario = Empresa.Instancia.BuscarUsuario(TxtUsuario.Text, TxtContrasena.Text, RBtnCliente.Text);
-            if (unUsuario != null && RBtnCliente.Checked==true)
+            Usuario unCliente = Empresa.Instancia.BuscarUsuario(TxtUsuario.Text, TxtContrasena.Text, RBtnCliente.Text);
+            Usuario unOperador = Empresa.Instancia.BuscarUsuario(TxtUsuario.Text, TxtContrasena.Text, RBtnOperador.Text);
+            if (unCliente != null && RBtnCliente.Checked==true)
             {
-                Session["Usuario"] = unUsuario;
+                Session["Usuario"] = unCliente;
                 Response.Redirect("InicioCliente.aspx");
             }
-            else if(unUsuario != null && RBtnOperador.Checked == true)
+            else if(unOperador != null && RBtnOperador.Checked == true)
             {
-                Session["Usuario"] = unUsuario;
+                Session["Usuario"] = unOperador;
                 Response.Redirect("InicioOperador.aspx");
             }
             else if(TxtUsuario.Text=="" || TxtContrasena.Text=="")

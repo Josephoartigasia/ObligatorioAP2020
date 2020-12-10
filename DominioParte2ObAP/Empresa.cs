@@ -26,6 +26,7 @@ namespace DominioParte2ObAP
         private Empresa()
         {
             usuarios = new List<Usuario>();
+            AgregarOperador();
         }
 
         public List<Usuario> Usuarios
@@ -86,13 +87,28 @@ namespace DominioParte2ObAP
 
         public bool AgregarUsuario(string ced, string nom, string ape, string contr)
         {
-            if(ValidarCedula(ced) && ValidarNombre(nom) && ValidarApellido(ape) && ValidarContrasena(contr))
+            Usuario uNuevo = new Usuario(ced, contr, "Cliente");
+            if (ValidarCedula(ced) && ValidarNombre(nom) && ValidarApellido(ape) && ValidarContrasena(contr) && !usuarios.Contains(uNuevo))
             {
-                Usuario uNuevo = new Usuario(ced, contr, "Cliente");
                 usuarios.Add(uNuevo);
                 return true;
             }
             return false;
+        }
+
+        public void AgregarOperador()
+        {
+            Usuario operador1 = new Operador("Operador1", "147258", "Operador");
+            if(ValidarNombre(operador1.NomUsuario) && ValidarContrasena(operador1.Contrasena) && !usuarios.Contains(operador1))
+            {
+                usuarios.Add(operador1);
+            }
+          
+            Usuario operador2 = new Operador("Operador2", "258369", "Operador");
+            if(ValidarNombre(operador1.NomUsuario) && ValidarContrasena(operador2.Contrasena) && !usuarios.Contains(operador2))
+            {
+                usuarios.Add(operador2);
+            }
         }
     }
 }
