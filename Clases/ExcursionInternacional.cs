@@ -10,6 +10,8 @@ namespace Clases
     {
         private CompaniaAerea CompAerea { get; set; }
 
+        public static float Comision { get; set; } = 0.05f;
+
         public ExcursionInternacional(string Descripcion, DateTime FechaIni, DateTime FechaFin, int Stock, bool EsNacional, CompaniaAerea CompAerea): base(Descripcion, FechaIni, FechaFin, Stock, EsNacional)
         {
             this.CompAerea = CompAerea;

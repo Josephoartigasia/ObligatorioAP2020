@@ -10,9 +10,12 @@ namespace Clases
     {
         private bool InteresNacional { get; set; }
 
-        public ExcursionNacional(string Descripcion, DateTime FechaIni, DateTime FechaFin, int Stock, bool EsNacional, bool InteresNacional) : base(Descripcion, FechaIni, FechaFin, Stock, EsNacional)
+        private float Descuento { get; set; }
+
+        public ExcursionNacional(string Descripcion, DateTime FechaIni, DateTime FechaFin, int Stock, bool EsNacional, bool InteresNacional, float Descuento) : base(Descripcion, FechaIni, FechaFin, Stock, EsNacional)
         {
             this.InteresNacional = InteresNacional;
+            this.Descuento = Descuento;
         }
 
         public override bool AgregarDestino(Destino d)

@@ -125,6 +125,42 @@ namespace Clases
             return costoTotalPesos;
         }
 
+        public float ObtenerCostoPorTipoExcursionDolares(float costo, int cantDias, float descuento, float comision, int codigo, DateTime fechaIni)
+        {
+            if (BuscarExcursionEnListaPorCodigo(codigo) is ExcursionNacional && fechaIni >= DateTime.Parse("2020-05-01") && fechaIni <= DateTime.Parse("2020-08-31"))
+            {
+                float costoSinDesc = ObtenerCostoDolares(costo, cantDias);
+                float desc = costoSinDesc * descuento;
+                float costoTotalConDesc = costoSinDesc - desc;
+                return costoTotalConDesc;
+            }
+            else
+            {
+                float costoTotalSinAum = ObtenerCostoDolares(costo, cantDias);
+                float aumento = costoTotalSinAum * comision;
+                float costoTotalConAum = costoTotalSinAum + aumento;
+                return costoTotalConAum;
+            }
+        }
+
+        public float ObtenerCostoPorTipoExcursionPesos(float costo, int cantDias, float descuento, float comision, int codigo, DateTime fechaIni, float cot)
+        {
+            if (BuscarExcursionEnListaPorCodigo(codigo) is ExcursionNacional && fechaIni >= DateTime.Parse("2020-05-01") && fechaIni <= DateTime.Parse("2020-08-31"))
+            {
+                float costoSinDesc = ObtenerCostoPesos(costo, cantDias, cot);
+                float desc = costoSinDesc * descuento;
+                float costoTotalConDesc = costoSinDesc - desc;
+                return costoTotalConDesc;
+            }
+            else
+            {
+                float costoTotalSinAum = ObtenerCostoPesos(costo, cantDias, cot);
+                float aumento = costoTotalSinAum * comision;
+                float costoTotalConAum = costoTotalSinAum + aumento;
+                return costoTotalConAum;
+            }
+        }
+
         public bool ValidarDestino(Destino d)
         {
             if (ValidarCantDiasDestino(d.CantDiasDestino) && ValidarCostoDestino(d.CostoPorDia) && ValidarCiudadDestino(d.Ciudad) && ValidarPaisDestino(d.Pais))
@@ -215,7 +251,7 @@ namespace Clases
             AgregarDestinoValidado(d5N);
 
 
-            Excursion exc1 = new ExcursionNacional("lalala", DateTime.Parse("2020-05-11"), DateTime.Parse("2020-06-15"), 20, true, true);
+            Excursion exc1 = new ExcursionNacional("lalala", DateTime.Parse("2020-05-11"), DateTime.Parse("2020-06-15"), 20, true, true, 0.01f);
             if (exc1.AgregarDestino(d1N) && exc1.AgregarDestino(d5N))
             {
                 exc1.Codigo = Excursion.ProxNumCodigo;
@@ -223,7 +259,7 @@ namespace Clases
                 Excursion.ProxNumCodigo += 100;
             }
 
-            Excursion exc2 = new ExcursionNacional("lelele", DateTime.Parse("2020-06-16"), DateTime.Parse("2020-06-26"), 9, true, true);
+            Excursion exc2 = new ExcursionNacional("lelele", DateTime.Parse("2020-06-16"), DateTime.Parse("2020-06-26"), 9, true, true, 0.05f);
             if (exc2.AgregarDestino(d3N) && exc2.AgregarDestino(d2N) && exc2.AgregarDestino(d5N) && exc2.AgregarDestino(d4N))
             {
                 exc2.Codigo =  Excursion.ProxNumCodigo;
@@ -231,7 +267,7 @@ namespace Clases
                 Excursion.ProxNumCodigo+= 100;
             }
 
-            Excursion exc3 = new ExcursionNacional("lilili", DateTime.Parse("2020-08-25"), DateTime.Parse("2020-09-11"), 3, true, true);
+            Excursion exc3 = new ExcursionNacional("lilili", DateTime.Parse("2020-08-25"), DateTime.Parse("2020-09-11"), 3, true, true, 0.1f);
             if (exc3.AgregarDestino(d5N) && exc2.AgregarDestino(d4N) && exc3.AgregarDestino(d2N))
             {
                 exc3.Codigo += Excursion.ProxNumCodigo;
@@ -239,7 +275,7 @@ namespace Clases
                 Excursion.ProxNumCodigo+= 100;
                 
             }
-            Excursion exc4 = new ExcursionNacional("lololo", DateTime.Parse("2020-10-25"), DateTime.Parse("2020-11-10"), 12, true, true);
+            Excursion exc4 = new ExcursionNacional("lololo", DateTime.Parse("2020-10-25"), DateTime.Parse("2020-11-10"), 12, true, true, 0.02f);
             if (exc4.AgregarDestino(d1N) && exc4.AgregarDestino(d4N))
             {
                 exc4.Codigo += Excursion.ProxNumCodigo;

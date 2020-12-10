@@ -11,34 +11,43 @@ namespace ObligatorioParte2AP
 {
 
 
-    public partial class InicioCliente
+    public partial class ListaDeCompras
     {
 
         /// <summary>
-        /// LiteralTabla control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal LiteralTabla;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// BtnComprasRealizadas control.
+        /// LtlComprasRealizadas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnComprasRealizadas;
+        protected global::System.Web.UI.WebControls.Literal LtlComprasRealizadas;
 
         /// <summary>
-        /// BtnSalir control.
+        /// LtlCostos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSalir;
+        protected global::System.Web.UI.WebControls.Literal LtlCostos;
+
+        /// <summary>
+        /// BtnVolverIniCli control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnVolverIniCli;
     }
 }

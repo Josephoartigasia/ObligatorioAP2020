@@ -128,6 +128,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="InicioCliente.aspx" />
+    <Content Include="ListaDeCompras.aspx" />
     <Content Include="PagInicio.aspx" />
     <Content Include="PagRegistroCliente.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -211,6 +212,13 @@
     </Compile>
     <Compile Include="InicioCliente.aspx.designer.cs">
       <DependentUpon>InicioCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListaDeCompras.aspx.cs">
+      <DependentUpon>ListaDeCompras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListaDeCompras.aspx.designer.cs">
+      <DependentUpon>ListaDeCompras.aspx</DependentUpon>
     </Compile>
     <Compile Include="PagInicio.aspx.cs">
       <DependentUpon>PagInicio.aspx</DependentUpon>

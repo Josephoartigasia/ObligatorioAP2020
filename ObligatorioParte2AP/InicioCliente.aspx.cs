@@ -29,5 +29,15 @@ namespace ObligatorioParte2AP
             html += "<table>";
             LiteralTabla.Text = html;
         }
+
+        protected void BtnSalir_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PagInicio.aspx");
+        }
+
+        protected void BtnComprasRealizadas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ListaDeCompras.aspx");
+        }
     }
 }
