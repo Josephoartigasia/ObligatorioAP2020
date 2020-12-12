@@ -12,6 +12,7 @@ namespace Clases
         private List<Destino> destinos;
         private List<Excursion> excursiones;
         private List<Excursion> nuevaCompra;
+        private List<Venta> ventas;
         private static Agencia instancia;
 
         public static Agencia Instancia
@@ -32,6 +33,7 @@ namespace Clases
             companiaAereas = new List<CompaniaAerea>();
             destinos = new List<Destino>();
             excursiones = new List<Excursion>();
+            ventas = new List<Venta>();
             AgregarExcursionNacionalPrecargada();
             AgregarExcursionInternacionalPrecargada();
         }
@@ -98,9 +100,9 @@ namespace Clases
             return false;
         }
 
-        public string ObtenerPaisDestino(string paisDestino)
+        public string ObtenerCiudadDestino(string ciudadDestino)
         {
-            return paisDestino;
+            return ciudadDestino;
         }
 
         public bool ValidarCotizacion(float cotiz)
@@ -343,6 +345,21 @@ namespace Clases
             return null;
         }
 
+        public string BuscarExcursionPorDestino(string d)
+        {
+            foreach(Excursion e in excursiones)
+            {
+                foreach(Destino des in e.Destinos)
+                {
+                    if(des.Ciudad== d)
+                    {
+                        return d;
+                    }
+                }
+            }
+            return null;
+        }
+
         public List<Destino> BuscarDestinosExcursionNacional(Excursion exc)
         {
             List<Destino> destEx = new List<Destino>();
@@ -387,6 +404,16 @@ namespace Clases
         public void EliminarCompra(Excursion ex)
         {
             nuevaCompra.Remove(ex);
+        }
+
+        public void AgregarVenta(Venta v)
+        {
+            ventas.Add(v);
+        }
+
+        public List<Venta> ObtenerListaVentas()
+        {
+            return new List<Venta>(ventas);
         }
     }
 }

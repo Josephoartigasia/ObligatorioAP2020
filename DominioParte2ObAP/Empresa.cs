@@ -85,9 +85,9 @@ namespace DominioParte2ObAP
             return false;
         }
 
-        public bool AgregarUsuario(string ced, string nom, string ape, string contr)
+        public bool AgregarCliente(string ced, string nom, string ape, string contr)
         {
-            Usuario uNuevo = new Usuario(ced, contr, "Cliente");
+            Cliente uNuevo = new Cliente(ced, nom, ape, ced, contr, "Cliente");
             if (ValidarCedula(ced) && ValidarNombre(nom) && ValidarApellido(ape) && ValidarContrasena(contr) && !usuarios.Contains(uNuevo))
             {
                 usuarios.Add(uNuevo);
@@ -109,6 +109,24 @@ namespace DominioParte2ObAP
             {
                 usuarios.Add(operador2);
             }
+        }
+
+        public List<Usuario> ObtenerUsuarios()
+        {
+            return usuarios;
+        }
+
+        public List<Cliente> ObtenerUsuariosClientes()
+        {
+            List<Cliente> clientes = new List<Cliente>();
+            foreach(Usuario u in usuarios)
+            {
+                if(u is Cliente)
+                {
+                    clientes.Add((Cliente)u);
+                }
+            }
+            return clientes;
         }
     }
 }

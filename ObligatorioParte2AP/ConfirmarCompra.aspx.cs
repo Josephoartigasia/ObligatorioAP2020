@@ -34,8 +34,12 @@ namespace ObligatorioParte2AP
             }
             else
             {
-                exc.Stock = exc.Stock - (cantMayores + cantMenores);
+                int cantPersonas = cantMayores + cantMenores;
+                exc.Stock = exc.Stock - cantPersonas;
                 Agencia.Instancia.AgregarCompra(exc);
+                Venta v = new Venta(DateTime.Today, cantPersonas);
+                v.AgregarVenta(exc);
+                Agencia.Instancia.AgregarVenta(v);
                 LiteralMsj.Text = "Compra realizada";
                 string detalleNuevaCompra = "<table class='table'><tr><th>Código</th><th>Descripción</th><th>Fecha de Inicio</th><th>Stock Disponible</th></tr>";
                 foreach (Excursion ex in Agencia.Instancia.ObtenerListaCompras())

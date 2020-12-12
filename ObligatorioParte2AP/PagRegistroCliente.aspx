@@ -4,6 +4,7 @@
     <asp:Label ID="LblNombreCl" runat="server" Text="Ingresar Nombre"></asp:Label><asp:TextBox ID="TxtNombre" runat="server"></asp:TextBox><br />
     <asp:Label ID="LblApellidoCl" runat="server" Text="Ingresar Apellido"></asp:Label><asp:TextBox ID="TxtApellido" runat="server"></asp:TextBox><br />
     <asp:Label ID="LblContrasena" runat="server" Text="Ingresar Contraseña"></asp:Label><asp:TextBox ID="TxtContrasena" runat="server" TextMode="Password"></asp:TextBox><br />
-    <asp:Button ID="BtnNuevoCliente" runat="server" Text="Registrarme" OnClick="BtnNuevoCliente_Click" /><br />
+    <asp:Button ID="BtnNuevoCliente" runat="server" Text="Registrarme" OnClick="BtnNuevoCliente_Click" />
+    <asp:Button ID="BtnVolver" runat="server" Text="VOLVER" OnClick="BtnVolver_Click" /><br />
     <asp:Label ID="LblMsjRegistro" runat="server" Text=""></asp:Label>
 </asp:Content>

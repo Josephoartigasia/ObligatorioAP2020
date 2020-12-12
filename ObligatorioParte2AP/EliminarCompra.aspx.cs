@@ -21,7 +21,7 @@ namespace ObligatorioParte2AP
             int num = Convert.ToInt32(Request.QueryString["Codigo"]);
             foreach (Excursion ex in Agencia.Instancia.ObtenerListaCompras())
             {
-                if(ex.Codigo == num)
+                if(ex.Codigo == num && (DateTime.Now -ex.FechaIni).TotalDays>=10)
                 {
                     Agencia.Instancia.EliminarCompra(ex);
                     LtlMsjEliminar.Text = "Compra eliminada";

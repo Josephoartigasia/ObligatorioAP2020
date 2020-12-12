@@ -18,5 +18,15 @@ namespace DominioParte2ObAP
             this.Nombre = Nombre;
             this.Apellido = Apellido;
         }
+
+        public int CompareTo(Cliente other)
+        {
+            return this.Apellido.CompareTo(other.Apellido);
+        }
+
+        public override string ToString()
+        {
+            return this.Apellido + " - " + this.Nombre + " - " + this.Cedula;
+        }
     }
 }

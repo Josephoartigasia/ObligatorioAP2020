@@ -39,7 +39,6 @@ namespace Clases
 
         public virtual bool AgregarDestino(Destino d)
         {
-            //valida que el destino no esté ya
             if (!destinosExc.Contains(d))
             {
                 destinosExc.Add(d);
@@ -68,6 +67,18 @@ namespace Clases
                 costoAcum += costo;
             }
             return costoAcum;
+        }
+
+        public string ObtenerNombreDestinos(string nomD)
+        {
+            foreach(Destino d in destinosExc)
+            {
+                if(d.Ciudad == nomD)
+                {
+                    return nomD;
+                }
+            }
+            return null;
         }
     }
 }

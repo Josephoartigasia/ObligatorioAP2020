@@ -21,7 +21,7 @@ namespace ObligatorioParte2AP
             string nombre = TxtNombre.Text;
             string apellido = TxtApellido.Text;
             string contrasena = TxtContrasena.Text;
-            if(Empresa.Instancia.AgregarUsuario(cedula, nombre, apellido, contrasena))
+            if(Empresa.Instancia.AgregarCliente(cedula, nombre, apellido, contrasena))
             {
                 LblMsjRegistro.Text = "Usuario ingresado";
                 Response.Redirect("PagInicio.aspx");
@@ -32,6 +32,11 @@ namespace ObligatorioParte2AP
             }
 
             
+        }
+
+        protected void BtnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PagInicio.aspx");
         }
     }
 }
