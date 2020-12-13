@@ -26,6 +26,10 @@ namespace ObligatorioParte2AP
                     Agencia.Instancia.EliminarCompra(ex);
                     LtlMsjEliminar.Text = "Compra eliminada";
                 }
+                else
+                {
+                    LtlMsjEliminar.Text = "No se puede eliminar una compra en un período menor a 10 días del inicio de la Excursión";
+                }
             }
         }
 

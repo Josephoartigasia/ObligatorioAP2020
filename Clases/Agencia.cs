@@ -55,15 +55,6 @@ namespace Clases
             return new List<Destino>(destinos);
         }
 
-        public Destino ObtenerUnDestino()
-        {
-            foreach(Destino d in destinos)
-            {
-                return d;
-            }
-            return null;
-        }
-
         public bool ValidarCantDiasDestino(int cantDiasD)
         {
             if (cantDiasD >= 1)
@@ -100,10 +91,6 @@ namespace Clases
             return false;
         }
 
-        public string ObtenerCiudadDestino(string ciudadDestino)
-        {
-            return ciudadDestino;
-        }
 
         public bool ValidarCotizacion(float cotiz)
         {
@@ -358,32 +345,6 @@ namespace Clases
                 }
             }
             return null;
-        }
-
-        public List<Destino> BuscarDestinosExcursionNacional(Excursion exc)
-        {
-            List<Destino> destEx = new List<Destino>();
-            foreach(Destino d in destinos)
-            {
-                if(exc is ExcursionNacional && d.Pais=="Uruguay")
-                {
-                    destEx.Add(d);
-                }
-            }
-            return destEx;
-        }
-
-        public List<Destino> BuscarDestinosExcursionInternacional(Excursion exc)
-        {
-            List<Destino> destEx = new List<Destino>();
-            foreach (Destino d in destinos)
-            {
-                if (exc is ExcursionInternacional && d.Pais == "Uruguay")
-                {
-                    destEx.Add(d);
-                }
-            }
-            return destEx;
         }
 
         public List<Excursion> ObtenerExcursiones()

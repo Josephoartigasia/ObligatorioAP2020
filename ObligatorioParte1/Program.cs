@@ -158,8 +158,15 @@ namespace ObligatorioParte1
             Console.WriteLine("La cotización actual es: " + Destino.Cotizacion);
             Console.WriteLine("Ingrese cotización: ");
             float cotizacion = Convert.ToSingle(Console.ReadLine());
-            Destino.Cotizacion = cotizacion;
-            Console.WriteLine("La nueva cotización es: " + Destino.Cotizacion);
+            if (Agencia.Instancia.ValidarCotizacion(cotizacion))
+            {
+                Destino.Cotizacion = cotizacion;
+                Console.WriteLine("La nueva cotización es: " + Destino.Cotizacion);
+            }
+            else
+            {
+                Console.WriteLine("Cotización inválida");
+            }
             Console.ReadKey();
             Console.Clear();
         }

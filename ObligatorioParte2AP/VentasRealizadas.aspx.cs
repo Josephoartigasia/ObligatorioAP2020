@@ -31,6 +31,10 @@ namespace ObligatorioParte2AP
                         acum += ex.CalcularCostoExcursionPesos(ex);
                     }
                 }
+                else
+                {
+                    LiteralListaVentas.Text = "No existen ventas en dicho período";
+                }
             }
             html += "</table>";
             LiteralListaVentas.Text = html;
